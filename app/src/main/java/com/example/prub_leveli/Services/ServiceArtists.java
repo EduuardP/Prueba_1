@@ -14,7 +14,7 @@ import okhttp3.Response;
 public class ServiceArtists extends AsyncTask<Void, Void, TopData> {
 
     String url = "https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=colombia&api_key=829751643419a7128b7ada50de590067&limit=20&format=json";
-    private TopData dataArray = null ;
+    private TopData dataArray = null ; 
     @Override
     protected TopData doInBackground(Void... voids) {
         try {
