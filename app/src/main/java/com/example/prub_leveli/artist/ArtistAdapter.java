@@ -44,7 +44,7 @@ public class ArtistAdapter extends ArrayAdapter<DataArtist> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
-        PlaceHolder holder = null;
+        PlaceHolder holder;
 
         if (row==null){
             LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -55,7 +55,7 @@ public class ArtistAdapter extends ArrayAdapter<DataArtist> {
             holder.nameArtist = (TextView) row.findViewById(R.id.nameArtist);
             holder.numOyentes = (TextView) row.findViewById(R.id.numOyentesArtist);
             holder.urlArtist = (TextView) row.findViewById(R.id.urlArtist);
-          //  holder.zipView = (TextView) row.findViewById(R.id.zipcodeTextView);
+
             holder.imageView = (ImageView) row.findViewById(R.id.imageArtist);
 
             row.setTag(holder);
@@ -65,32 +65,17 @@ public class ArtistAdapter extends ArrayAdapter<DataArtist> {
             holder = (PlaceHolder) row.getTag();
         }
 
-      //  Place place = artist[position];
 
-     //   holder.imageView.setOnClickListener(PopupListener);
-
-
-     //   Integer rowPostion = position;
-      //  holder.imageView.setTag(rowPostion);
 
         holder.nameArtist.setText(artist.get(position).getName());
         holder.numOyentes.setText(artist.get(position).getListeners());
         holder.urlArtist.setText(artist.get(position).getUrl());
-       // holder.zipView.setText(String.valueOf(place.mZipCode));
+
         Picasso.with(getContext())
                 .load(artist.get(position).getImage().get(2).getUrl())
                 .into(holder.imageView);
 
-        /*
-        TextView nameView = row.findViewById(R.id.nameTextView);
-        TextView zipView =  row.findViewById(R.id.zipcodeTextView);
-        ImageView imageView = row.findViewById(R.id.imageView);
-        nameView.setText(place.mNameOfPlace);
-        zipView.setText(String.valueOf(place.mZipCode));
-        */
 
-       // int resId = mContext.getResources().getIdentifier(place.mNameOfImage,"drawable",mContext.getPackageName());
-       // holder.imageView.setImageResource(resId);
 
 
         return row;

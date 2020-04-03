@@ -48,6 +48,21 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        artistAdapter = new ArtistAdapter(getApplicationContext(),R.layout.item_artist,datos);
+        listArtist.setAdapter(artistAdapter);
+        Log.d(TAG, "onCreate: "+datos);
+
+
+
+        listArtist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        ""+artistAdapter.getItem(position).getName(),
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
 
 
     }
